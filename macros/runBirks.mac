@@ -1,0 +1,69 @@
+/gps/verbose 0
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0 0 0 cm
+/gps/pos/radius 0.5 m
+/gps/ang/type focused
+/gps/ang/focuspoint 0 0 0 cm
+/gps/ene/type Mono
+/gps/ene/mono 1.2 MeV
+
+
+
+
+/MyPrimaryGenerator/UseGPS false
+/gun/particle gamma
+/gun/position 0 0 10 cm
+/gun/direction 0 0 -1
+
+#/process/eLoss/StepFunction 0.0001 1 nm
+/process/eLoss/StepFunction 0.001 10 nm
+
+
+/MyLysoBirksStepping/kBirks 0.222
+/MyLysoBirksStepping/nH     0.0274
+/MyLysoBirksStepping/nEH    0.758
+/MyLysoBirksStepping/dEdxO  16.47
+
+
+/NameOfFile/NameOfFile ../DST/5555D_1keV
+/gun/energy  1 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/5555D_3keV
+/gun/energy  3 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/5555D_6keV
+/gun/energy  6 keV
+/run/beamOn 10000
+
+
+/NameOfFile/NameOfFile ../DST/5555D_10keV
+/gun/energy  10 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/5555D_30keV
+/gun/energy  30 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/5555D_60keV
+/gun/energy  60 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/5555D_100keV
+/gun/energy  100 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/5555D_300keV
+/gun/energy  300 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/5555D_662keV
+/gun/energy  662 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/5555D_1000keV
+/gun/energy  1000 keV
+/run/beamOn 10000

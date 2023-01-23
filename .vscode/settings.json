@@ -1,0 +1,9 @@
+{
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "files.associations": {
+        "AnalysisScintillator.C": "cpp",
+        "AnalysisCalorimeter.C": "cpp",
+        "*.icc": "cpp",
+        "Reconstruction.C": "cpp"
+    }
+}

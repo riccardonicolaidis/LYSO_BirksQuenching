@@ -1,0 +1,35 @@
+# ---------------------------------------------------------------------------- #
+#                    GENERAL PARTICLE SOURCE DEFAULT CONFIOG                   #
+# ---------------------------------------------------------------------------- #
+/gps/verbose 2
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0 0 0 cm
+/gps/pos/radius 0.5 m
+/gps/ang/type focused
+/gps/ang/focuspoint 0 0 0 cm
+/gps/ene/type Mono
+/gps/ene/mono 1.2 MeV
+#/gps/ang/maxtheta 90 deg
+#/gps/ang/mintheta 0 deg
+
+# ---------------------------------------------------------------------------- #
+#                    PARTICLE GUN FOR DEBUGGING MODE CONFIOG                   #
+# ---------------------------------------------------------------------------- #
+
+
+/MyPrimaryGenerator/UseGPS false
+/gun/particle gamma
+/gun/energy 100 keV
+/gun/position 0 0 10 cm
+/gun/direction 0 0 -1
+
+
+# ---------------------------------------------------------------------------- #
+#                       DEFAULT FILE NAME FOR SAVING DATA                      #
+# ---------------------------------------------------------------------------- #
+/NameOfFile/NameOfFile ProvaFile
+
+
+

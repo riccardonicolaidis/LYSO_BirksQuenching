@@ -1,0 +1,48 @@
+
+  G4double xSiPM = 0;
+  G4double ySiPM = 0;
+  G4double zSiPM = 0;
+
+  G4int CopyNumber = 0;
+
+  
+  // COSTRUISCO 6 SiPM SULLE FACCIE DEL CUBO
+
+
+
+  // SiPM 1
+  zSiPM = LzScintillator/2. + ThicknessSiPM/2.;
+  xSiPM = 0.;
+  ySiPM = 0.;
+
+  new G4PVPlacement(rotSiPM, G4ThreeVector(xSiPM, ySiPM, zSiPM), logicSiPM, "physSiPM", logicWorld, false, CopyNumber++, true);
+  new G4PVPlacement(rotSiPM, G4ThreeVector(xSiPM, ySiPM, -zSiPM), logicSiPM, "physSiPM", logicWorld, false, CopyNumber++, true);
+
+  // SiPM 2
+  zSiPM = 0.;
+  xSiPM = LxScintillator/2. + ThicknessSiPM/2.;
+  ySiPM = 0.;
+
+  rotSiPM = new G4RotationMatrix();
+  rotSiPM->rotateY(90*deg);
+
+  new G4PVPlacement(rotSiPM, G4ThreeVector(xSiPM, ySiPM, zSiPM), logicSiPM, "physSiPM", logicWorld, false, CopyNumber++, true);
+  new G4PVPlacement(rotSiPM, G4ThreeVector(-xSiPM, ySiPM, zSiPM), logicSiPM, "physSiPM", logicWorld, false, CopyNumber++, true);
+
+  // SiPM 3
+  zSiPM = 0.;
+  xSiPM = 0.;
+  ySiPM = LyScintillator/2. + ThicknessSiPM/2.;
+
+  rotSiPM = new G4RotationMatrix();
+  rotSiPM->rotateX(90*deg);
+
+  new G4PVPlacement(rotSiPM, G4ThreeVector(xSiPM, ySiPM, zSiPM), logicSiPM, "physSiPM", logicWorld, false, CopyNumber++, true);
+  new G4PVPlacement(rotSiPM, G4ThreeVector(xSiPM, -ySiPM, zSiPM), logicSiPM, "physSiPM", logicWorld, false, CopyNumber++, true);
+
+  solidSiPM = new G4Box("solidSiPM", Side1/2., Side2/2., ThicknessSiPM/2.);
+  logicSiPM = new G4LogicalVolume(solidSiPM, LYSO, "logicSiPM");
+
+
+
+
