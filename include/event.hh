@@ -25,12 +25,13 @@ public:
         void AddEdep(G4double edep) { fEdep += edep; }
         void AddCounter(G4int counter) { fCounter += counter; }
         void AddEdepQuenched(G4double edepQ) { fEdepQuenched += edepQ; }
-
+        void AddEdepQuenchedIon(G4double edepQIon) { fEdepQuenchedIon += edepQIon; }
 private:
 
         G4double   fEdep;
         G4int      fCounter;
         G4double   fEdepQuenched;
+        G4double   fEdepQuenchedIon;
 
 };
 

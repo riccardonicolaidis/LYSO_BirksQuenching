@@ -5,6 +5,9 @@
 #include <sstream>
 #include <string>
 
+#include "G4UserLimits.hh"
+#include "G4Region.hh"
+#include "G4ProductionCuts.hh"
 
 
 using namespace std;
@@ -220,6 +223,11 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
   // .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo
   // .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo
   
+
+  G4double MaxStepLength = 0.01 * um;
+
+
+
   // World dimensions
   xWorld = 5.*m;
   yWorld = 5.*m;
@@ -283,6 +291,22 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
   visScintillator = new G4VisAttributes(G4Colour(0.3,0.3,1.0));
   visScintillator->SetForceSolid(true);
   logicScintillator->SetVisAttributes(visScintillator);
+
+  G4UserLimits *MaxStep = new G4UserLimits();
+  MaxStep -> SetMaxAllowedStep(MaxStepLength);
+  logicScintillator -> SetUserLimits(MaxStep);
+
+  G4Region *ScintillatorRegion = new G4Region("ScintillatorRegion");
+  G4ProductionCuts *ScintillatorCuts = new G4ProductionCuts();
+  ScintillatorCuts -> SetProductionCut(1*CLHEP::um , "gamma");
+  ScintillatorCuts -> SetProductionCut(1*CLHEP::um , "e-");
+  ScintillatorCuts -> SetProductionCut(1*CLHEP::um , "e+");
+
+
+  ScintillatorRegion -> AddRootLogicalVolume(logicScintillator);
+  ScintillatorRegion -> SetProductionCuts(ScintillatorCuts);
+
+
 
 
   TotalMass+= (logicScintillator->GetMass())/g;

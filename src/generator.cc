@@ -71,12 +71,12 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 
 
   // FILL ALL THE DETAILS REQUIRED FOR THE ANALYSIS
-  man -> FillNtupleDColumn(1, positionStart.getX());
-  man -> FillNtupleDColumn(2, positionStart.getY());
-  man -> FillNtupleDColumn(3, positionStart.getZ());
-  man -> FillNtupleDColumn(4, momentumStart.getX());
-  man -> FillNtupleDColumn(5, momentumStart.getY());
-  man -> FillNtupleDColumn(6, momentumStart.getZ());
+  man -> FillNtupleDColumn(0, 1, positionStart.getX());
+  man -> FillNtupleDColumn(0, 2, positionStart.getY());
+  man -> FillNtupleDColumn(0, 3, positionStart.getZ());
+  man -> FillNtupleDColumn(0, 4, momentumStart.getX());
+  man -> FillNtupleDColumn(0, 5, momentumStart.getY());
+  man -> FillNtupleDColumn(0, 6, momentumStart.getZ());
   
     
   G4int evt = ParticleNumber;
@@ -88,12 +88,9 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 
 
 
-
-  man -> FillNtupleIColumn(7,evt);
-
   
   
-  if(ParticleNumber%100 == 0)
+  if(ParticleNumber%500 == 0)
   {
     G4cout << ParticleNumber <<  G4endl;
   }

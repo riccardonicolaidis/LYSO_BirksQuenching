@@ -41,8 +41,17 @@ void MyRunAction::BeginOfRunAction(const G4Run* run)
     man -> CreateNtupleDColumn("EdepScint");        // 8
     man -> CreateNtupleDColumn("DetectedPhotons");  // 9
     man -> CreateNtupleDColumn("EdepQuenched");     // 10
+    man -> CreateNtupleDColumn("EdepIonQuenched");  // 11
     man -> FinishNtuple(0);
-   
+
+
+    /*
+    man -> CreateNtuple("dEdX", "dEdX");
+    man -> CreateNtupleDColumn("E");
+    man -> CreateNtupleDColumn("dX");
+    man -> CreateNtupleDColumn("dEdX");
+    man -> FinishNtuple(1);
+   */
 }
 
 void MyRunAction::EndOfRunAction(const G4Run* )

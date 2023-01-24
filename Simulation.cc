@@ -31,6 +31,7 @@
 #include "G4EmStandardPhysics_option4.hh"
 #include "G4OpticalParameters.hh"
 #include "G4OpticalPhysics.hh"
+#include "G4StepLimiterPhysics.hh"
 
 #include "construction.hh"
 
@@ -52,7 +53,17 @@ int main(int argc, char** argv)
 
   // Set mandatory initialization classes
   // Define PhysicsList
-  G4VModularPhysicsList* physicsList = new LBE;
+  G4VModularPhysicsList* physicsList = new FTFP_BERT();
+  //physicsList   -> ReplacePhysics(new G4EmStandardPhysics_option4());
+  physicsList   -> ReplacePhysics(new G4EmLowEPPhysics());
+
+  G4StepLimiterPhysics* stepLimiter = new G4StepLimiterPhysics();
+  stepLimiter -> SetApplyToAll(true);
+  physicsList -> RegisterPhysics(stepLimiter);
+
+  physicsList -> SetCuts();
+
+  
 
   if(OPTICAL_PROCESSES == 1)
   {

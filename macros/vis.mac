@@ -27,7 +27,7 @@
 # Name
 /vis/set/textColour green
 /vis/set/textLayout right
-/vis/scene/add/text2D 0.9 -.9 10 ! ! LYSO
+/vis/scene/add/text2D 0.9 -.9 10 ! ! LYSO Birks
 
 /vis/set/textLayout    # Revert to normal (left adjusted) layout
 /vis/set/textColour    # Revert to default text colour (blue)
@@ -57,8 +57,8 @@
 /vis/viewer/set/hiddenMarker false
 
 /vis/viewer/set/style surface
-/vis/geometry/set/colour logicScintillator  0 0.7 0.1 0.8 0.8
-/vis/geometry/set/colour logicPMT  0 0.7 0.7 0.7 0.1
+/vis/geometry/set/colour logicScintillator  0 0.4 0.1 0.4 1.
+/vis/geometry/set/colour logicPMT  0 0.7 0.7 0.7 1.
 
 
 /vis/scene/add/hits

@@ -38,25 +38,39 @@ void MySteppingAction::UserSteppingAction(const G4Step *step)
 
   // collect energy deposited in this step
   G4double edepStep = step->GetTotalEnergyDeposit();
-  G4double edepIon  = edepStep - step->GetNonIonizingEnergyDeposit();
-
+  
   // Compute the length of the step
   G4double stepLength = step -> GetStepLength();
 
   // Compute the energy stopping power
-  G4double dEdx = (stepLength > 0.) ? (edepStep/stepLength / (MeV/mm)) : 0.;
+  G4double dEdx    = (stepLength > 0.) ? (edepStep/stepLength / (MeV/mm)) : 0.;
+  
+
+  G4AnalysisManager *man = G4AnalysisManager::Instance();
+  //man -> FillNtupleDColumn(1, 0, step->GetPreStepPoint()->GetKineticEnergy() - 0.5*edepStep);
+  //man -> FillNtupleDColumn(1, 1, stepLength);
+  //man -> FillNtupleDColumn(1, 2, dEdx);
+
+  // Particle definition electron
+  //if(step -> GetTrack() -> GetDefinition() -> GetParticleName() == "e-")
+  //{
+  //  man -> AddNtupleRow(1);
+  // }
+  
 
   if(!(step->GetTrack()->GetDefinition()->GetParticleName() == "opticalphoton"))
   {
-
+    
     // Compute the Birks Quenching
     G4double LightYield = (1 - nEH * exp(- dEdx/dEdxO)) * ((1 - nH)/(1 + kBirks * (1 - nH)* dEdx) + nH);
-
     //if(kBirks != 0.222)
     //  G4cout << "nH: " << nH << " nEH: " << nEH << " kBirks: " << kBirks << " dEdxO: " << dEdxO << G4endl;
 
     fEventAction->AddEdep(edepStep);
     fEventAction->AddEdepQuenched(edepStep*LightYield);
+
+    if(!(step->GetTrack()->GetDefinition()->GetParticleName() == "gamma"))
+      fEventAction->AddEdepQuenchedIon(edepStep*LightYield);
   }
   
 }
