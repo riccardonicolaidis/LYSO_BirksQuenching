@@ -81,10 +81,10 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
     
   G4int evt = ParticleNumber;
   // Create an output txt file but do not overwrite it if it exists
-  ofstream myfile;
-  myfile.open ("../output_debug.txt", ios::app);
-  myfile << evt << " " << positionStart.getX() << " " << positionStart.getY() << " " << positionStart.getZ() << " " << momentumStart.getX() << " " << momentumStart.getY() << " " << momentumStart.getZ() << " " << fParticleGun->GetParticleEnergy() << endl;
-  myfile.close();
+  //ofstream myfile;
+  //myfile.open ("../output_debug.txt", ios::app);
+  //myfile << evt << " " << positionStart.getX() << " " << positionStart.getY() << " " << positionStart.getZ() << " " << momentumStart.getX() << " " << momentumStart.getY() << " " << momentumStart.getZ() << " " << fParticleGun->GetParticleEnergy() << endl;
+  //myfile.close();
 
 
 
