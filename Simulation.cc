@@ -61,7 +61,7 @@ int main(int argc, char** argv)
   stepLimiter -> SetApplyToAll(true);
   physicsList -> RegisterPhysics(stepLimiter);
 
-  physicsList -> SetCuts();
+  //physicsList -> SetCuts();
 
   
 

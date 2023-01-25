@@ -6,7 +6,7 @@
 
 /vis/open OGL 600x600-0+0
 /vis/viewer/set/viewpointThetaPhi 180. 0.
-/vis/viewer/zoom 1.2
+/vis/viewer/zoom 10.
 /vis/drawVolume
 /vis/viewer/set/autoRefresh false
 
@@ -34,11 +34,11 @@
 
 
 #/vis/scene/add/axes -7 -7 -4 5 cm # Simple axes: x=red, y=green, z=blue.
-/vis/scene/add/axes 0 0 0 2 cm
+/vis/scene/add/axes 0 0 0 1 mm
 
 # Frame
 /vis/set/colour red
-/vis/set/lineWidth 3
+/vis/set/lineWidth 4
 /vis/scene/add/frame   # Simple frame around the view
 /vis/set/colour        # Revert to default colour (white)
 #/vis/set/lineWidth     # Revert to default line width (1.)

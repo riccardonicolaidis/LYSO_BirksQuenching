@@ -93,20 +93,53 @@ There are different settings from different runs
 - A: FTFP_BERT 
 
 
-
+### Run di Test e verifica
 - D: LBE , no photons , /process/eLoss/StepFunction 0.001 10 nm
 - E: LBE , no photons , /process/eLoss/StepFunction 0.0/process/eLoss/StepFunction 0.00005 0.5 nm0005 0.5 nm
 - F: LBE , no photons ,/process/eLoss/StepFunction 0.0001 1 nm
 - G: LBE , no photons , /process/eLoss/StepFunction 0.0001 0.5 nm
 - J: Limito il passo per produzione di secondari a 1 nm
+- M: 0.01 um (step) 1 um (range) , opzione SetCuts
+- N: 0.01 um (step) 1 um (range) , NO opzione SetCuts (solo alcuni)
+
+
+### Run di simulazione 
+- O: 0.01 um (step) 1 nm (range) : STANDARD (non saranno piu` cambiate queste impostazioni quindi non le riporto piu') Parametro kBirks = 0.222
+- P: kBirks = 0.0185 (Erroneamente abbiamo usato un parametro 10 volte piu` piccolo) Codice 4555
+- Q: kBirks = 0.185 Codice 4555 (IN CORSO)
+- R: kBirks = 0.278 Codice 6555 (DA FARE)
 
 
 
 
 
+### Note per Simulazione
+- Parametri simulati 5555
+```
+/MyLysoBirksStepping/kBirks 0.222
+/MyLysoBirksStepping/nH     0.0274
+/MyLysoBirksStepping/nEH    0.758
+/MyLysoBirksStepping/dEdxO  16.47
+```
+- Da simulare 4555
+```
+/MyLysoBirksStepping/kBirks 0.185
+/MyLysoBirksStepping/nH     0.0274
+/MyLysoBirksStepping/nEH    0.758
+/MyLysoBirksStepping/dEdxO  16.47
+```
+- Da simulare 6555
+```
+/MyLysoBirksStepping/kBirks 0.278
+/MyLysoBirksStepping/nH     0.0274
+/MyLysoBirksStepping/nEH    0.758
+/MyLysoBirksStepping/dEdxO  16.47
+```
 
-
-
+- Da Simulare gli stessi del 5555 con elettroni 
+```
+/gun/particle e-
+```
 
 
 

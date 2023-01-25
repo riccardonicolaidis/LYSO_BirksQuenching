@@ -27,110 +27,106 @@
 #/process/eLoss/fluct false
 
 
-/MyLysoBirksStepping/kBirks 0.222
+/MyLysoBirksStepping/kBirks 0.185
 /MyLysoBirksStepping/nH     0.0274
 /MyLysoBirksStepping/nEH    0.758
 /MyLysoBirksStepping/dEdxO  16.47
-
 
 #/cuts/setLowEdge 0.1 eV
 
 
 
-#/NameOfFile/NameOfFile ../DST/DSTM/5555M_{energy}keV
+#/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_{energy}keV
 #/gun/energy  {energy} keV
 #/run/beamOn 10000
 
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_1keV
+
+
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_1keV
 /gun/energy  1 keV
 /run/beamOn 10000
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_1_4keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_1_4keV
 /gun/energy  1.4 keV
 /run/beamOn 10000
 
-
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_2keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_2keV
 /gun/energy  2 keV
 /run/beamOn 10000
 
-
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_3keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_3keV
 /gun/energy  3 keV
 /run/beamOn 10000
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_4_5keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_4_5keV
 /gun/energy  4.5 keV
 /run/beamOn 10000
 
-
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_6keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_6keV
 /gun/energy  6 keV
 /run/beamOn 10000
 
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_10keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_10keV
 /gun/energy  10 keV
 /run/beamOn 10000
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_14keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_14keV
 /gun/energy  14 keV
 /run/beamOn 10000
 
-
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_20keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_20keV
 /gun/energy  20 keV
 /run/beamOn 10000
 
-
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_30keV
-/gun/energy  30 keV
-/run/beamOn 10000
-
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_45keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_45keV
 /gun/energy  45 keV
-/run/beamOn 10000
+/run/beamOn 5000
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_60keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_60keV
 /gun/energy  60 keV
-/run/beamOn 10000
+/run/beamOn 1000
 
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_100keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_100keV
 /gun/energy  100 keV
-/run/beamOn 10000
+/run/beamOn 1000
 
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_140keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_140keV
 /gun/energy  140 keV
 /run/beamOn 10000
 
 
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_200keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_200keV
 /gun/energy  200 keV
 /run/beamOn 10000
 
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_300keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_300keV
 /gun/energy  300 keV
 /run/beamOn 1000
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_511keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_511keV
 /gun/energy  511 keV
 /run/beamOn 1000
 
-
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_662keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_662keV
 /gun/energy  662 keV
-/run/beamOn 10000
+/run/beamOn 1000
 
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_1000keV
+
+
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_1000keV
 /gun/energy  1000 keV
 /run/beamOn 1000
 
-
-/NameOfFile/NameOfFile ../DST/DSTM/5555M_1333keV
+/NameOfFile/NameOfFile ../DST/DSTQ/4555Q_1333keV
 /gun/energy  1333 keV
 /run/beamOn 1000
+
+
+
+

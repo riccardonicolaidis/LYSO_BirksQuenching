@@ -86,3 +86,65 @@
 /run/beamOn 10000
 
 
+
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_1keV
+/gun/energy  1 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_1_4keV
+/gun/energy  1.4 keV
+/run/beamOn 10000
+
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_2keV
+/gun/energy  2 keV
+/run/beamOn 10000
+
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_3keV
+/gun/energy  3 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_4_5keV
+/gun/energy  4.5 keV
+/run/beamOn 10000
+
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_6keV
+/gun/energy  6 keV
+/run/beamOn 10000
+
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_10keV
+/gun/energy  10 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_14keV
+/gun/energy  14 keV
+/run/beamOn 10000
+
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_20keV
+/gun/energy  20 keV
+/run/beamOn 10000
+
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_30keV
+/gun/energy  30 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_45keV
+/gun/energy  45 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_60keV
+/gun/energy  60 keV
+/run/beamOn 10000
+
+
+
+/NameOfFile/NameOfFile ../DST/DSTO/5555O_662keV
+/gun/energy  662 keV
+/run/beamOn 10000
+

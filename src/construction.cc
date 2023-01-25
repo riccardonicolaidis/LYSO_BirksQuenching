@@ -298,9 +298,9 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 
   G4Region *ScintillatorRegion = new G4Region("ScintillatorRegion");
   G4ProductionCuts *ScintillatorCuts = new G4ProductionCuts();
-  ScintillatorCuts -> SetProductionCut(1*CLHEP::um , "gamma");
-  ScintillatorCuts -> SetProductionCut(1*CLHEP::um , "e-");
-  ScintillatorCuts -> SetProductionCut(1*CLHEP::um , "e+");
+  ScintillatorCuts -> SetProductionCut(1*CLHEP::nm , "gamma");
+  ScintillatorCuts -> SetProductionCut(1*CLHEP::nm , "e-");
+  ScintillatorCuts -> SetProductionCut(1*CLHEP::nm , "e+");
 
 
   ScintillatorRegion -> AddRootLogicalVolume(logicScintillator);
