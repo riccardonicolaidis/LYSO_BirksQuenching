@@ -136,6 +136,14 @@ There are different settings from different runs
 /MyLysoBirksStepping/dEdxO  16.47
 ```
 
+- Da simulare 3555
+```
+/MyLysoBirksStepping/kBirks 0.158
+/MyLysoBirksStepping/nH     0.0274
+/MyLysoBirksStepping/nEH    0.758
+/MyLysoBirksStepping/dEdxO  16.47
+```
+
 - Da Simulare gli stessi del 5555 con elettroni 
 ```
 /gun/particle e-
