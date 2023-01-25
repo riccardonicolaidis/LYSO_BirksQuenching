@@ -106,9 +106,9 @@ There are different settings from different runs
 ### Run di simulazione 
 - O: 0.01 um (step) 1 nm (range) : STANDARD (non saranno piu` cambiate queste impostazioni quindi non le riporto piu') Parametro kBirks = 0.222
 - P: kBirks = 0.0185 (Erroneamente abbiamo usato un parametro 10 volte piu` piccolo) Codice 4555
-- Q: kBirks = 0.185 Codice 4555 (IN CORSO)
-- R: kBirks = 0.278 Codice 6555 (DA FARE)
-
+- Q: kBirks = 0.185 Codice 4555 (Terminato)
+- S: kBirks = 0.278 Codice 6555 (Terminato)
+- R e-: Run 5555 con elettroni (Terminato)
 
 
 
