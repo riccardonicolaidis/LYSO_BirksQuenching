@@ -10,10 +10,6 @@
 #include "G4VModularPhysicsList.hh"
 
 #include "G4RunManager.hh"
-//#include "G4UIExecutive.hh"
-//#include "G4VisManager.hh"
-//#include "G4VisExecutive.hh"
-//#include "G4UImanager.hh"
 
 
 #include "G4RunManagerFactory.hh"
@@ -22,8 +18,6 @@
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
 
-
-//#include "QGSP_BERT_HP.hh"
 #include "FTFP_BERT.hh"
 #include "LBE.hh"
 #include "G4EmLowEPPhysics.hh"
@@ -35,8 +29,6 @@
 
 #include "construction.hh"
 
-
-//#include "physics.hh"       
 #include "action.hh"       
 
 
