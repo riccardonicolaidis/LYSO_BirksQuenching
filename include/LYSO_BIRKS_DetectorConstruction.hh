@@ -30,23 +30,30 @@
 #include <cmath>
 #include "G4VisAttributes.hh"
 #include "G4Ellipsoid.hh"
+#include "G4AnalysisManager.hh"
+#include "G4UserLimits.hh"
+#include "G4Region.hh"
+#include "G4ProductionCuts.hh"
 
 
 #include "G4LogicalBorderSurface.hh"
 #include "G4LogicalSkinSurface.hh"
 #include "G4OpticalSurface.hh"
 
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
-#include "Analysis.hh"
-//#include "detector.hh"
-#include "detectorPhotonCounter.hh"
-#include "myglobals.hh"
 
-class MyDetectorConstruction : public G4VUserDetectorConstruction
+
+#include "LYSO_BIRKS_Globals.hh"
+
+class LYSO_BIRKS_DetectorConstruction : public G4VUserDetectorConstruction
 {
 public:
-  MyDetectorConstruction();
-  ~MyDetectorConstruction();
+  LYSO_BIRKS_DetectorConstruction();
+  ~LYSO_BIRKS_DetectorConstruction();
 
   virtual G4VPhysicalVolume *Construct();
 

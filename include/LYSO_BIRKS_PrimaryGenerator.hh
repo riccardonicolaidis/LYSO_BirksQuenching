@@ -15,16 +15,22 @@
 #include "G4LogicalVolume.hh"
 #include "G4Box.hh"
 #include "G4Event.hh"
+#include "G4AnalysisManager.hh"
+#include "G4RunManager.hh"
 
+#include "LYSO_BIRKS_Globals.hh"
 
-#include "Analysis.hh"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <vector>
 
-
-class MyPrimaryGenerator : public G4VUserPrimaryGeneratorAction
+class LYSO_BIRKS_PrimaryGenerator : public G4VUserPrimaryGeneratorAction
 {
 public:
-  MyPrimaryGenerator();
-  ~MyPrimaryGenerator();
+  LYSO_BIRKS_PrimaryGenerator();
+  ~LYSO_BIRKS_PrimaryGenerator();
 
   virtual void GeneratePrimaries(G4Event*);
 

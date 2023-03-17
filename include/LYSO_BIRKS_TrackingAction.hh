@@ -7,26 +7,27 @@
 #include "G4Track.hh"
 #include "G4HadronicProcessType.hh"
 #include "G4SystemOfUnits.hh"
+#include "G4AnalysisManager.hh"
 
-#include "construction.hh"
 
-#include "Analysis.hh"
+#include "LYSO_BIRKS_DetectorConstruction.hh"
 
-class MyDetectorConstruction;
+
+class LYSO_BIRKS_DetectorConstruction;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class MyTrackingAction : public G4UserTrackingAction {
+class LYSO_BIRKS_TrackingAction : public G4UserTrackingAction {
 
   public:  
-    MyTrackingAction(MyDetectorConstruction*);
-   ~MyTrackingAction();
+    LYSO_BIRKS_TrackingAction(LYSO_BIRKS_DetectorConstruction*);
+   ~LYSO_BIRKS_TrackingAction();
    
     virtual void  PreUserTrackingAction(const G4Track*);   
     virtual void PostUserTrackingAction(const G4Track*);
     
   private:
-    MyDetectorConstruction* fDetector;
+    LYSO_BIRKS_DetectorConstruction* fDetector;
 };
 
 

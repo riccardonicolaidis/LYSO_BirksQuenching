@@ -1,4 +1,4 @@
-#include "hit.hh"
+#include "LYSO_BIRKS_HitClass.hh"
 
 G4ThreadLocal G4Allocator<HitClass>* HitAllocator=0;
 

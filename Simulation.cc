@@ -1,4 +1,4 @@
-#include "myglobals.hh"
+#include "LYSO_BIRKS_Globals.hh"
 
 
 #include <iostream>
@@ -27,9 +27,8 @@
 #include "G4OpticalPhysics.hh"
 #include "G4StepLimiterPhysics.hh"
 
-#include "construction.hh"
-
-#include "action.hh"       
+#include "LYSO_BIRKS_DetectorConstruction.hh"
+#include "LYSO_BIRKS_ActionInitialization.hh"       
 
 
 
@@ -72,11 +71,11 @@ int main(int argc, char** argv)
     
 
   // Detector geometry and materials
-  MyDetectorConstruction* det= new MyDetectorConstruction;
+  LYSO_BIRKS_DetectorConstruction* det= new LYSO_BIRKS_DetectorConstruction;
 
   runManager -> SetUserInitialization(det);
   runManager -> SetUserInitialization(physicsList);
-  runManager -> SetUserInitialization(new MyActionInitialization(det));
+  runManager -> SetUserInitialization(new LYSO_BIRKS_ActionInitialization(det));
 
 
 

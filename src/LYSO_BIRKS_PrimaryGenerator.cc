@@ -1,17 +1,10 @@
-#include "generator.hh"
-#include "myglobals.hh"
-#include "G4RunManager.hh"
+#include "LYSO_BIRKS_PrimaryGenerator.hh"
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <vector>
 
 using namespace std;
 
 
-MyPrimaryGenerator::MyPrimaryGenerator(): G4VUserPrimaryGeneratorAction(),
+LYSO_BIRKS_PrimaryGenerator::LYSO_BIRKS_PrimaryGenerator(): G4VUserPrimaryGeneratorAction(),
    fParticleSource(0)
 { 
   // PARTICLE GUN DEFINITION
@@ -39,13 +32,13 @@ MyPrimaryGenerator::MyPrimaryGenerator(): G4VUserPrimaryGeneratorAction(),
   fMessenger -> DeclareProperty("UseGPS", UseGPS, "Use GPS or not");
 }
 
-MyPrimaryGenerator::~MyPrimaryGenerator()
+LYSO_BIRKS_PrimaryGenerator::~LYSO_BIRKS_PrimaryGenerator()
 {
   delete fParticleSource;
   delete fParticleGun;
 }
 
-void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
+void LYSO_BIRKS_PrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 {
 
   G4AnalysisManager *man = G4AnalysisManager::Instance();
@@ -81,10 +74,10 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
     
   G4int evt = ParticleNumber;
   // Create an output txt file but do not overwrite it if it exists
-  //ofstream myfile;
-  //myfile.open ("../output_debug.txt", ios::app);
-  //myfile << evt << " " << positionStart.getX() << " " << positionStart.getY() << " " << positionStart.getZ() << " " << momentumStart.getX() << " " << momentumStart.getY() << " " << momentumStart.getZ() << " " << fParticleGun->GetParticleEnergy() << endl;
-  //myfile.close();
+  //ofstream LYSO_BIRKS_file;
+  //LYSO_BIRKS_file.open ("../output_debug.txt", ios::app);
+  //LYSO_BIRKS_file << evt << " " << positionStart.getX() << " " << positionStart.getY() << " " << positionStart.getZ() << " " << momentumStart.getX() << " " << momentumStart.getY() << " " << momentumStart.getZ() << " " << fParticleGun->GetParticleEnergy() << endl;
+  //LYSO_BIRKS_file.close();
 
 
 

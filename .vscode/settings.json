@@ -4,6 +4,13 @@
         "AnalysisScintillator.C": "cpp",
         "AnalysisCalorimeter.C": "cpp",
         "*.icc": "cpp",
-        "Reconstruction.C": "cpp"
+        "Reconstruction.C": "cpp",
+        "_tess": "cpp",
+        "event": "cpp",
+        "group": "cpp",
+        "matrix": "cpp",
+        "node": "cpp",
+        "noderef": "cpp",
+        "separator": "cpp"
     }
 }

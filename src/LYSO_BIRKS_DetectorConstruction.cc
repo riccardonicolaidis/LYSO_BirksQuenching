@@ -1,32 +1,23 @@
-#include "construction.hh"
-#include "myglobals.hh"
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-
-#include "G4UserLimits.hh"
-#include "G4Region.hh"
-#include "G4ProductionCuts.hh"
+#include "LYSO_BIRKS_DetectorConstruction.hh"
 
 
 using namespace std;
 
-MyDetectorConstruction::MyDetectorConstruction()
+LYSO_BIRKS_DetectorConstruction::LYSO_BIRKS_DetectorConstruction()
 {
 
   kBirks = 0.;
-  fMessenger = new G4GenericMessenger(this, "/MyLysoBirksConstruction/", "Control Birks quenching parameters etc. In the STEPPING action");
+  fMessenger = new G4GenericMessenger(this, "/LYSO_BIRKS_LysoBirksConstruction/", "Control Birks quenching parameters etc. In the STEPPING action");
   fMessenger -> DeclareProperty("kBirks", kBirks, "kBirks in mm/MeV");
 
   // Define the materials only once
   DefineMaterials();  
 }
 
-MyDetectorConstruction::~MyDetectorConstruction()
+LYSO_BIRKS_DetectorConstruction::~LYSO_BIRKS_DetectorConstruction()
 {}
 
-void MyDetectorConstruction::DefineMaterials()
+void LYSO_BIRKS_DetectorConstruction::DefineMaterials()
 {
   G4NistManager *nist = G4NistManager::Instance();
 
@@ -204,7 +195,7 @@ void MyDetectorConstruction::DefineMaterials()
 
 }
 
-G4VPhysicalVolume *MyDetectorConstruction::Construct()
+G4VPhysicalVolume *LYSO_BIRKS_DetectorConstruction::Construct()
 {
 
 
@@ -352,11 +343,9 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 }
 
 
-void MyDetectorConstruction::ConstructSDandField()
+void LYSO_BIRKS_DetectorConstruction::ConstructSDandField()
 {
-  MySensitiveDetector *sensDet = new MySensitiveDetector("SensitiveDetector", SENSITIVE_DETECTOR_PHOTON_COUNTER, "SensitiveDetector");
-  logicPMT -> SetSensitiveDetector(sensDet);
-
+  
 
 }
 

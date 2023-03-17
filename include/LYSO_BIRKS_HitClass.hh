@@ -12,9 +12,7 @@
 #include "G4Allocator.hh"
 #include "G4ThreeVector.hh"
 #include "tls.hh"
-
-
-#include "Analysis.hh"
+#include "G4AnalysisManager.hh"
 
 class HitClass : public G4VHit
 {

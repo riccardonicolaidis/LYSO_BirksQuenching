@@ -1,10 +1,7 @@
 #include "detectorPhotonCounter.hh"
-#include "G4OpticalPhoton.hh"
-#include "action.hh"
-#include "myglobals.hh"
 
 
-MySensitiveDetector::MySensitiveDetector(const G4String& Name,
+LYSO_BIRKS_SensitiveDetector::LYSO_BIRKS_SensitiveDetector(const G4String& Name,
                          G4int Number,
                          const G4String& hitsCollectionName) 
  : G4VSensitiveDetector(Name),
@@ -16,13 +13,13 @@ MySensitiveDetector::MySensitiveDetector(const G4String& Name,
 }
 
 
-MySensitiveDetector::~MySensitiveDetector()
+LYSO_BIRKS_SensitiveDetector::~LYSO_BIRKS_SensitiveDetector()
 {}
 
 
 
 
-void MySensitiveDetector::Initialize(G4HCofThisEvent* hce)
+void LYSO_BIRKS_SensitiveDetector::Initialize(G4HCofThisEvent* hce)
 {
   // Create hits collection
 
@@ -40,7 +37,7 @@ void MySensitiveDetector::Initialize(G4HCofThisEvent* hce)
 
 // Introduction of the sensitive detector informations
 
-G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROHist)
+G4bool LYSO_BIRKS_SensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROHist)
 {
     if(DetectorType == SENSITIVE_DETECTOR_PHOTON_COUNTER)
     {
@@ -50,7 +47,7 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROHis
         {
           track -> SetTrackStatus(fStopAndKill);
 
-          MyEventAction *eventAction = (MyEventAction*)G4RunManager::GetRunManager() -> GetUserEventAction();
+          LYSO_BIRKS_EventAction *eventAction = (LYSO_BIRKS_EventAction*)G4RunManager::GetRunManager() -> GetUserEventAction();
           eventAction -> AddCounter(1);
 
           G4StepPoint *preStepPoint = aStep -> GetPreStepPoint();    // when photon enters the detector
@@ -97,7 +94,7 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROHis
 
 
 
-void MySensitiveDetector::EndOfEvent(G4HCofThisEvent*)
+void LYSO_BIRKS_SensitiveDetector::EndOfEvent(G4HCofThisEvent*)
 {
   // 
   if (verboseLevel> 1 ) { 
