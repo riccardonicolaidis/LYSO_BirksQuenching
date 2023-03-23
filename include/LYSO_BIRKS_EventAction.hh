@@ -27,16 +27,11 @@ public:
         void AddCounter(G4int counter) { fCounter += counter; }
         void AddEdepQuenched(G4double edepQ) { fEdepQuenched += edepQ; }
 
-        G4int GetNumberOfItems(){ return NumberOfItems; }
-
-
-        std::vector <G4double> & GetfEdep2(){ return fEdep2;}
         std::vector <G4double> & GetfEdepQuenchedArray(){ return fEdepQuenchedArray;}
 
 private:
 
         G4double   fEdep;
-        std::vector <G4double> fEdep2;
         G4int      fCounter;
         G4double   fEdepQuenched;
 
@@ -46,8 +41,6 @@ private:
         G4int      NumberOfElements = pow(NUMBER_ELEMENT_GRID,4);
 
         G4GenericMessenger *fMessenger;
-
-        G4int NumberOfItems;
 
 
 

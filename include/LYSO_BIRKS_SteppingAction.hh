@@ -55,6 +55,11 @@ public:
     G4double GetnH_step() {return nH_step;}
     G4double GetnEH_step() {return nEH_step;}
     G4double GetdEdxO_step() {return dEdxO_step;}
+
+    G4double GetkBirks_nominal() {return kBirks_nominal;}
+    G4double GetnH_nominal() {return nH_nominal;}
+    G4double GetnEH_nominal() {return nEH_nominal;}
+    G4double GetdEdxO_nominal() {return dEdxO_nominal;}
     
 
 
@@ -69,6 +74,8 @@ private:
     G4double nH_min, nEH_min, kBirks_min, dEdxO_min;
     G4double nH_max, nEH_max, kBirks_max, dEdxO_max;
     G4double nH_step, nEH_step, kBirks_step, dEdxO_step;
+
+    G4double nH_nominal, nEH_nominal, kBirks_nominal, dEdxO_nominal;
 
 };
 

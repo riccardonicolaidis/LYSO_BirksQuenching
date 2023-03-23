@@ -11,19 +11,25 @@ LYSO_BIRKS_SteppingAction::LYSO_BIRKS_SteppingAction(LYSO_BIRKS_DetectorConstruc
   
   fMessenger = new G4GenericMessenger(this, "/MyLysoBirksStepping/", "Control Birks quenching parameters etc. In the STEPPING action");
   fMessenger -> DeclareProperty("kBirks", kBirks, "kBirks in mm/MeV");
-  fMessenger -> DeclareProperty("nH", nH, "nH");
-  fMessenger -> DeclareProperty("nEH", nEH, "nEH");
-  fMessenger -> DeclareProperty("dEdxO", dEdxO, "dEdxO");
+  fMessenger -> DeclareProperty("nH",     nH,     "nH");
+  fMessenger -> DeclareProperty("nEH",    nEH,    "nEH");
+  fMessenger -> DeclareProperty("dEdxO",  dEdxO,  "dEdxO");
 
   fMessenger -> DeclareProperty("kBirks_min", kBirks_min, "kBirks_min in mm/MeV");
-  fMessenger -> DeclareProperty("nH_min", nH_min, "nH_min");
-  fMessenger -> DeclareProperty("nEH_min", nEH_min, "nEH_min");
-  fMessenger -> DeclareProperty("dEdx0_min", dEdxO_min, "dEdxO_min");
+  fMessenger -> DeclareProperty("nH_min",     nH_min,     "nH_min");
+  fMessenger -> DeclareProperty("nEH_min",    nEH_min,    "nEH_min");
+  fMessenger -> DeclareProperty("dEdx0_min",  dEdxO_min,  "dEdxO_min");
 
   fMessenger -> DeclareProperty("kBirks_max", kBirks_max, "kBirks_max in mm/MeV");
   fMessenger -> DeclareProperty("nH_max", nH_max, "nH_max");
   fMessenger -> DeclareProperty("nEH_max", nEH_max, "nEH_max");
   fMessenger -> DeclareProperty("dEdx0_max", dEdxO_max, "dEdxO_max");  
+
+  fMessenger -> DeclareProperty("kBirks_nominal", kBirks_nominal, "kBirks_nominal in mm/MeV");
+  fMessenger -> DeclareProperty("nH_nominal", nH_nominal, "nH_nominal");
+  fMessenger -> DeclareProperty("nEH_nominal", nEH_nominal, "nEH_nominal");
+  fMessenger -> DeclareProperty("dEdx0_nominal", dEdxO_nominal, "dEdxO_nominal");
+
 }
 
 LYSO_BIRKS_SteppingAction::~LYSO_BIRKS_SteppingAction()
@@ -76,7 +82,7 @@ void LYSO_BIRKS_SteppingAction::UserSteppingAction(const G4Step *step)
   {
     
     // Compute the Birks Quenching
-    G4double LightYield = (1 - nEH * exp(- dEdx/dEdxO)) * ((1 - nH)/(1 + kBirks * (1 - nH)* dEdx) + nH);
+    G4double LightYield = (1 - nEH_nominal * exp(- dEdx/dEdxO_nominal)) * ((1 - nH_nominal)/(1 + kBirks_nominal * (1 - nH_nominal)* dEdx) + nH_nominal);
     //if(kBirks != 0.222)
     //  G4cout << "nH: " << nH << " nEH: " << nEH << " kBirks: " << kBirks << " dEdxO: " << dEdxO << G4endl;
     fEventAction->AddEdep(edepStep);

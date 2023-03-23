@@ -81,13 +81,8 @@ void LYSO_BIRKS_PrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 
 
 
-  
-  
-  if(ParticleNumber%500 == 0)
-  {
-    G4cout << ParticleNumber <<  G4endl;
-  }
-  
+  G4cout << ParticleNumber <<  G4endl;  
+    
 
   ++ParticleNumber;
   

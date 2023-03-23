@@ -31,18 +31,17 @@
 # ---------------------------------------------------------------------------- #
 
 
-/NameOfFile/NameOfFile ProvaFile
+#/NameOfFile/NameOfFile ProvaFile
 
-/MyLysoBirksStepping/kBirks_min 0.0001
-/MyLysoBirksStepping/kBirks_max 10.
-/MyLysoBirksStepping/nH_min 0.0001
-/MyLysoBirksStepping/nH_max 10.
-/MyLysoBirksStepping/nEH_min 0.001
-/MyLysoBirksStepping/nEH_max 10.
-/MyLysoBirksStepping/dEdx0_min 0.0001
-/MyLysoBirksStepping/dEdx0_max 10.
+#/MyLysoBirksStepping/kBirks_min 0.0001
+#/MyLysoBirksStepping/kBirks_max 10.
+#/MyLysoBirksStepping/nH_min 0.0001
+#/MyLysoBirksStepping/nH_max 10.
+#/MyLysoBirksStepping/nEH_min 0.001
+#/MyLysoBirksStepping/nEH_max 10.
+#/MyLysoBirksStepping/dEdx0_min 0.0001
+#/MyLysoBirksStepping/dEdx0_max 10.
 
-/NumberOfItems/NumberOfItems 10
 
-/run/beamOn 1
+#/run/beamOn 1
 
