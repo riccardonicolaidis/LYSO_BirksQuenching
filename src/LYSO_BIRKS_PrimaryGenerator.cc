@@ -80,8 +80,7 @@ void LYSO_BIRKS_PrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
   //LYSO_BIRKS_file.close();
 
 
-
-  G4cout << ParticleNumber <<  G4endl;  
+  G4cout << ParticleNumber << G4endl;  
     
 
   ++ParticleNumber;

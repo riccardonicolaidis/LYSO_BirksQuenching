@@ -73,5 +73,6 @@
 /vis/viewer/set/globalMarkerScale 1
 /vis/viewer/set/globalLineWidthScale 1
 
+/control/execute default_generator.mac
 
 

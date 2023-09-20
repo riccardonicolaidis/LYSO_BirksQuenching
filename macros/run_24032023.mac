@@ -1,0 +1,140 @@
+# ---------------------------------------------------------------------------- #
+#                    GENERAL PARTICLE SOURCE DEFAULT CONFIOG                   #
+# ---------------------------------------------------------------------------- #
+/gps/verbose 2
+/gps/particle gamma
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/centre 0 0 0 cm
+/gps/pos/radius 0.5 m
+/gps/ang/type focused
+/gps/ang/focuspoint 0 0 0 cm
+/gps/ene/type Mono
+/gps/ene/mono 1.2 MeV
+#/gps/ang/maxtheta 90 deg
+#/gps/ang/mintheta 0 deg
+
+# ---------------------------------------------------------------------------- #
+#                    PARTICLE GUN FOR DEBUGGING MODE CONFIOG                   #
+# ---------------------------------------------------------------------------- #
+
+
+/MyPrimaryGenerator/UseGPS false
+/gun/particle gamma
+
+/gun/position 0 0 10 cm
+/gun/direction 0 0 -1
+
+
+# ---------------------------------------------------------------------------- #
+#                       DEFAULT FILE NAME FOR SAVING DATA                      #
+# ---------------------------------------------------------------------------- #
+
+
+
+
+/MyLysoBirksStepping/kBirks_min 0.1
+/MyLysoBirksStepping/kBirks_max 0.3
+
+/MyLysoBirksStepping/nH_min 0.01
+/MyLysoBirksStepping/nH_max 0.05
+
+/MyLysoBirksStepping/nEH_min 0.3
+/MyLysoBirksStepping/nEH_max 1.1
+
+/MyLysoBirksStepping/dEdx0_min 10.
+/MyLysoBirksStepping/dEdx0_max 20.
+
+
+/MyLysoBirksStepping/kBirks_nominal 0.222
+/MyLysoBirksStepping/nH_nominal 0.0274
+/MyLysoBirksStepping/nEH_nominal 0.758
+/MyLysoBirksStepping/dEdx0_nominal 16.47
+
+
+/gun/particle gamma
+/gun/position 0 0 5 cm
+/gun/direction 0 0 -1
+
+
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_30keV
+/gun/energy  30 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_1keV
+/gun/energy  1 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_1_4keV
+/gun/energy  1.4 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_2keV
+/gun/energy  2 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_3keV
+/gun/energy  3 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_4_5keV
+/gun/energy  4.5 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_6keV
+/gun/energy  6 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_10keV
+/gun/energy  10 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_14keV
+/gun/energy  14 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_20keV
+/gun/energy  20 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_45keV
+/gun/energy  45 keV
+/run/beamOn 5000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_60keV
+/gun/energy  60 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_100keV
+/gun/energy  100 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_140keV
+/gun/energy  140 keV
+/run/beamOn 10000
+
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_200keV
+/gun/energy  200 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_300keV
+/gun/energy  300 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_511keV
+/gun/energy  511 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_662keV
+/gun/energy  662 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_10000keV
+/gun/energy  10000 keV
+/run/beamOn 10000
+
+/NameOfFile/NameOfFile ../DST/DST_LYSO2/run22032023_1333keV
+/gun/energy  1333 keV
+/run/beamOn 10000
