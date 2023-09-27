@@ -1,13 +1,16 @@
 #include "LYSO_BIRKS_SteppingAction.hh"
 
 
-LYSO_BIRKS_SteppingAction::LYSO_BIRKS_SteppingAction(LYSO_BIRKS_DetectorConstruction* det, LYSO_BIRKS_EventAction* event)
-: G4UserSteppingAction(), fDetector(det), fEventAction(event)
+LYSO_BIRKS_SteppingAction::LYSO_BIRKS_SteppingAction(LYSO_BIRKS_DetectorConstruction* det, 
+                                                     LYSO_BIRKS_EventAction* event)
+: G4UserSteppingAction(), 
+  fDetector(det), 
+  fEventAction(event)
 {
   kBirks = 0.;
-  nH = 0.;
-  nEH = 0.;
-  dEdxO = 0.;
+  nH     = 0.;
+  nEH    = 0.;
+  dEdxO  = 0.;
   
   fMessenger = new G4GenericMessenger(this, "/MyLysoBirksStepping/", "Control Birks quenching parameters etc. In the STEPPING action");
   fMessenger -> DeclareProperty("kBirks", kBirks, "kBirks in mm/MeV");
@@ -38,10 +41,11 @@ LYSO_BIRKS_SteppingAction::~LYSO_BIRKS_SteppingAction()
 
 void LYSO_BIRKS_SteppingAction::UserSteppingAction(const G4Step *step)
 {
-  nH_step = (nH_max - nH_min)/NUMBER_ELEMENT_GRID;
-  nEH_step = (nEH_max - nEH_min)/NUMBER_ELEMENT_GRID;
-  kBirks_step = (kBirks_max - kBirks_min)/NUMBER_ELEMENT_GRID;
-  dEdxO_step = (dEdxO_max - dEdxO_min)/NUMBER_ELEMENT_GRID;
+  G4int N = fRunAction -> GetNumberElementsGrid();
+  nH_step     = (nH_max - nH_min)/N;
+  nEH_step    = (nEH_max - nEH_min)/N;
+  kBirks_step = (kBirks_max - kBirks_min)/N;
+  dEdxO_step  = (dEdxO_max - dEdxO_min)/N;
 
 
   if (!fScoringVolume) 
@@ -70,7 +74,6 @@ void LYSO_BIRKS_SteppingAction::UserSteppingAction(const G4Step *step)
   //man -> FillNtupleDColumn(1, 0, step->GetPreStepPoint()->GetKineticEnergy() - 0.5*edepStep);
   //man -> FillNtupleDColumn(1, 1, stepLength);
   //man -> FillNtupleDColumn(1, 2, dEdx);
-
   // Particle definition electron
   //if(step -> GetTrack() -> GetDefinition() -> GetParticleName() == "e-")
   //{
@@ -83,40 +86,37 @@ void LYSO_BIRKS_SteppingAction::UserSteppingAction(const G4Step *step)
     
     // Compute the Birks Quenching
     G4double LightYield = (1 - nEH_nominal * exp(- dEdx/dEdxO_nominal)) * ((1 - nH_nominal)/(1 + kBirks_nominal * (1 - nH_nominal)* dEdx) + nH_nominal);
-    //if(kBirks != 0.222)
     //  G4cout << "nH: " << nH << " nEH: " << nEH << " kBirks: " << kBirks << " dEdxO: " << dEdxO << G4endl;
-    fEventAction->AddEdep(edepStep);
-    fEventAction->AddEdepQuenched(edepStep*LightYield);
+    fEventAction -> AddEdep(edepStep);
+    fEventAction -> AddEdepQuenched(edepStep*LightYield);
 
 
     std::vector <G4double> & fEdepQuenchedArray = fEventAction->GetfEdepQuenchedArray();
 
 
     G4int ConfigurationNumber = 0;
-    for(G4int i = 0; i < NUMBER_ELEMENT_GRID; ++i)
+    for(G4int i = 0; i < N; ++i)
     {
-        for(G4int j = 0; j < NUMBER_ELEMENT_GRID; ++j)
+      for(G4int j = 0; j < N; ++j)
+      {
+        for(G4int k = 0; k < N; ++k)
         {
-          for(G4int k = 0; k < NUMBER_ELEMENT_GRID; ++k)
+          for(G4int l = 0; l < N; ++l)
           {
-              for(G4int l = 0; l < NUMBER_ELEMENT_GRID; ++l)
-              {
-                  ++ConfigurationNumber;
-                  G4double kBirks_i = kBirks_min + kBirks_step * i;
-                  G4double nH_j = nH_min + nH_step * j;
-                  G4double nEH_k = nEH_min + nEH_step * k;
-                  G4double dEdxO_l = dEdxO_min + dEdxO_step * l;
-                  LightYield = (1 - nEH_k * exp(- dEdx/dEdxO_l)) * ((1 - nH_j)/(1 + kBirks_i * (1 - nH_j)* dEdx) + nH_j);
-
-                  fEdepQuenchedArray[ConfigurationNumber] += edepStep*LightYield;
-              }
+            ++ConfigurationNumber;
+            G4double kBirks_i = kBirks_min + kBirks_step * i;
+            G4double nH_j     = nH_min + nH_step * j;
+            G4double nEH_k    = nEH_min + nEH_step * k;
+            G4double dEdxO_l  = dEdxO_min + dEdxO_step * l;
+            LightYield        = (1 - nEH_k * exp(- dEdx/dEdxO_l)) * ((1 - nH_j)/(1 + kBirks_i * (1 - nH_j)* dEdx) + nH_j);
+            fEdepQuenchedArray[ConfigurationNumber] += edepStep*LightYield;
           }
         }
+      }
     }
     
 
 
 
   }
-  
 }

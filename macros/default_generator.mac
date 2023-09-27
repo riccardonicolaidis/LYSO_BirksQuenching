@@ -53,7 +53,11 @@
 /gun/position 0 0 5 cm
 /gun/direction 0 0 -1
 
+/NumberElementsGrid/NumberElementsGrid 2
 
 
-/NameOfFile/NameOfFile ProvaFile
-/gun/energy  30 keV
+/NameOfFile/NameOfFile ../OutputFiles/ProvaFile_2
+/NameOfFile/NameOfConfigFile ../OutputFiles/ProvaFileConfig_2
+/gun/energy  100 keV
+
+

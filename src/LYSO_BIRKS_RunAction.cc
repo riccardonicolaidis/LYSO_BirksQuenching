@@ -4,27 +4,15 @@ LYSO_BIRKS_RunAction::LYSO_BIRKS_RunAction(LYSO_BIRKS_DetectorConstruction *det,
     : G4UserRunAction(),
       fDetector(det), fPrimary(prim), fEvent(event), fStepping(stepping)
 {
+    fStepping -> SetRunAction(this);
+    fEvent    -> SetRunAction(this);
 
     fMessenger = new G4GenericMessenger(this, "/NameOfFile/", "Name of the file to save data");
     fMessenger->DeclareProperty("NameOfFile", TotalFileName, "Name of the file to save data");
+    fMessenger->DeclareProperty("NameOfConfigFile", FileNameConfig, "Name of the file to save data configuration");
 
-    G4AnalysisManager *man = G4AnalysisManager::Instance();
-
-    // Ntuple particle generator
-    man->CreateNtuple("Event", "Event");
-    man->CreateNtupleDColumn("IncidentEnergy");                                     // 0
-    man->CreateNtupleDColumn("Xgen");                                               // 1
-    man->CreateNtupleDColumn("Ygen");                                               // 2
-    man->CreateNtupleDColumn("Zgen");                                               // 3
-    man->CreateNtupleDColumn("pDirX");                                              // 4
-    man->CreateNtupleDColumn("pDirY");                                              // 5
-    man->CreateNtupleDColumn("pDirZ");                                              // 6
-    man->CreateNtupleIColumn("event");                                              // 7
-    man->CreateNtupleDColumn("EdepScint");                                          // 8
-    man->CreateNtupleDColumn("EdepQuenched");                                       // 9
-    man->CreateNtupleDColumn("EdepQuenchedArray", fEvent->GetfEdepQuenchedArray()); // 11
-
-    man->FinishNtuple(0);
+    fMessenger2 = new G4GenericMessenger(this, "/NumberElementsGrid/", "Number of elements in the grid");
+    fMessenger2->DeclareProperty("NumberElementsGrid", NumberElementsGrid, "Number of elements in the grid");
 
     /*
     man -> CreateNtuple("dEdX", "dEdX");
@@ -44,6 +32,23 @@ void LYSO_BIRKS_RunAction::BeginOfRunAction(const G4Run *run)
 
     G4AnalysisManager *man = G4AnalysisManager::Instance();
 
+    // Ntuple particle generator
+    man->CreateNtuple("Event", "Event");
+    man->CreateNtupleDColumn("IncidentEnergy");                                     // 0
+    man->CreateNtupleDColumn("Xgen");                                               // 1
+    man->CreateNtupleDColumn("Ygen");                                               // 2
+    man->CreateNtupleDColumn("Zgen");                                               // 3
+    man->CreateNtupleDColumn("pDirX");                                              // 4
+    man->CreateNtupleDColumn("pDirY");                                              // 5
+    man->CreateNtupleDColumn("pDirZ");                                              // 6
+    man->CreateNtupleIColumn("event");                                              // 7
+    man->CreateNtupleDColumn("EdepScint");                                          // 8
+    man->CreateNtupleDColumn("EdepQuenched");                                       // 9
+    fEvent -> ResizefEdepQuenchedArray((G4int) pow(NumberElementsGrid,4));
+    man->CreateNtupleDColumn("EdepQuenchedArray", fEvent->GetfEdepQuenchedArray()); // 11
+    man->FinishNtuple(0);
+
+
     TotalFileNameFinal = TotalFileName + ".root";
     man->SetVerboseLevel(6);
     man->OpenFile(TotalFileNameFinal);
@@ -51,8 +56,15 @@ void LYSO_BIRKS_RunAction::BeginOfRunAction(const G4Run *run)
 
 void LYSO_BIRKS_RunAction::EndOfRunAction(const G4Run *)
 {
+
+    cout << "End of Run Action" << endl;
+    cout << "Printing configuration file" << endl
+         << endl
+         << endl;
     ofstream ConfigurationFile;
-    ConfigurationFile.open("../OutputFiles/Config.txt");
+    G4String FileNameConfigFinal = FileNameConfig + ".txt";
+
+    ConfigurationFile.open(FileNameConfigFinal);
 
     G4double kBirks_min = fStepping->GetkBirks_min();
     G4double nH_min = fStepping->GetnH_min();
@@ -89,13 +101,13 @@ void LYSO_BIRKS_RunAction::EndOfRunAction(const G4Run *)
     int ConfigurationNumber = 0;
 
     ConfigurationFile << "#\tkBirks\tnH\tnEH\tdEdxO" << endl;
-    for (int i = 0; i < NUMBER_ELEMENT_GRID; ++i)
+    for (int i = 0; i < NumberElementsGrid; ++i)
     {
-        for (int j = 0; j < NUMBER_ELEMENT_GRID; ++j)
+        for (int j = 0; j < NumberElementsGrid; ++j)
         {
-            for (int k = 0; k < NUMBER_ELEMENT_GRID; ++k)
+            for (int k = 0; k < NumberElementsGrid; ++k)
             {
-                for (int l = 0; l < NUMBER_ELEMENT_GRID; ++l)
+                for (int l = 0; l < NumberElementsGrid; ++l)
                 {
                     ConfigurationFile << ConfigurationNumber << "\t" << kBirks_min + kBirks_step * i << "\t" << nH_min + nH_step * j << "\t" << nEH_min + nEH_step * k << "\t" << dEdxO_min + dEdxO_step * l << endl;
                     ++ConfigurationNumber;
@@ -103,6 +115,11 @@ void LYSO_BIRKS_RunAction::EndOfRunAction(const G4Run *)
             }
         }
     }
+
+    ConfigurationFile.close();
+    cout << "End of printing configuration file" << endl
+         << endl
+         << endl;
 
     G4AnalysisManager *man = G4AnalysisManager::Instance();
     man->Write();

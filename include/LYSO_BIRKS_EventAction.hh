@@ -13,7 +13,15 @@
 
 #include "LYSO_BIRKS_HitClass.hh"
 #include "LYSO_BIRKS_RunAction.hh"
+#include "LYSO_BIRKS_SteppingAction.hh"
+#include "LYSO_BIRKS_TrackingAction.hh"
+#include "LYSO_BIRKS_PrimaryGenerator.hh"
+#include "LYSO_BIRKS_DetectorConstruction.hh"
 #include "LYSO_BIRKS_Globals.hh"
+
+using namespace std;
+
+class LYSO_BIRKS_RunAction;
 
 class LYSO_BIRKS_EventAction : public G4UserEventAction
 {
@@ -29,18 +37,19 @@ public:
 
         std::vector <G4double> & GetfEdepQuenchedArray(){ return fEdepQuenchedArray;}
 
+        void SetRunAction(LYSO_BIRKS_RunAction *runAction) { fRunAction = (LYSO_BIRKS_RunAction*) runAction; }
+        void ResizefEdepQuenchedArray(G4int n){fEdepQuenchedArray.resize(n);} 
+
+
 private:
 
         G4double   fEdep;
         G4int      fCounter;
         G4double   fEdepQuenched;
-
-
-        std::vector <G4double> fEdepQuenchedArray;
-        
-        G4int      NumberOfElements = pow(NUMBER_ELEMENT_GRID,4);
-
+        std::vector <G4double> fEdepQuenchedArray;        
+        G4int      NumberOfElements = pow(3,4); // Initial value to be recomputed
         G4GenericMessenger *fMessenger;
+        LYSO_BIRKS_RunAction *fRunAction;
 
 
 

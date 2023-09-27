@@ -1,0 +1,21 @@
+/MyPrimaryGenerator/UseGPS false 
+/gun/particle e-
+/MyLysoBirksStepping/kBirks_min 0.1
+/MyLysoBirksStepping/kBirks_max 0.2
+/MyLysoBirksStepping/nH_min 0.01
+/MyLysoBirksStepping/nH_max 0.02
+/MyLysoBirksStepping/nEH_min 0.01
+/MyLysoBirksStepping/nEH_max 0.02
+/MyLysoBirksStepping/dEdx0_min 0.01
+/MyLysoBirksStepping/dEdx0_max 0.02
+/MyLysoBirksStepping/kBirks_nominal 0.1
+/MyLysoBirksStepping/nH_nominal 0.01
+/MyLysoBirksStepping/nEH_nominal 0.01
+/MyLysoBirksStepping/dEdx0_nominal 0.01
+/gun/position 0 0 5 cm
+/gun/direction 0 0 -1
+/NumberElementsGrid/NumberElementsGrid 2
+/NameOfFile/NameOfFile /data1/home/rnicolai/LYSO_BirksQuenching/OUTPUT_PROVA/root/macro_e-_100_keV
+/NameOfFile/NameOfConfigFile /data1/home/rnicolai/LYSO_BirksQuenching/OUTPUT_PROVA/log/macro_e-_100_keV
+/gun/energy  100 keV
+/run/beamOn 1000

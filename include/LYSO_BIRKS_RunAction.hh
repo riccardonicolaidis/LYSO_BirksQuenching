@@ -36,14 +36,20 @@ public:
     virtual void BeginOfRunAction(const G4Run* );
     virtual void EndOfRunAction(const G4Run* );
 
+    G4int GetNumberElementsGrid() {return NumberElementsGrid;}
+
 private:
     LYSO_BIRKS_DetectorConstruction *fDetector;
     LYSO_BIRKS_PrimaryGenerator *fPrimary;
     LYSO_BIRKS_EventAction *fEvent;
     LYSO_BIRKS_SteppingAction *fStepping;
     G4GenericMessenger *fMessenger;
+    G4GenericMessenger *fMessenger2;
     G4String TotalFileName;
     G4String TotalFileNameFinal;
+
+    G4String FileNameConfig;
+    G4int NumberElementsGrid = 3;
 
 };
 

@@ -15,6 +15,7 @@
 #include "LYSO_BIRKS_DetectorConstruction.hh"
 #include "LYSO_BIRKS_EventAction.hh"
 #include "LYSO_BIRKS_Globals.hh"
+#include "LYSO_BIRKS_RunAction.hh"
 
 #include <iostream>
 #include <fstream>
@@ -26,6 +27,7 @@ using namespace std;
 
 class LYSO_BIRKS_DetectorConstruction;
 class LYSO_BIRKS_EventAction;
+class LYSO_BIRKS_RunAction;
 
 class LYSO_BIRKS_SteppingAction : public G4UserSteppingAction
 {
@@ -60,6 +62,8 @@ public:
     G4double GetnH_nominal() {return nH_nominal;}
     G4double GetnEH_nominal() {return nEH_nominal;}
     G4double GetdEdxO_nominal() {return dEdxO_nominal;}
+
+    void SetRunAction(LYSO_BIRKS_RunAction* run) {fRunAction = (LYSO_BIRKS_RunAction*) run;}
     
 
 
@@ -67,6 +71,7 @@ private:
     LYSO_BIRKS_EventAction *fEventAction;
     LYSO_BIRKS_DetectorConstruction *fDetector;
     G4LogicalVolume* fScoringVolume = nullptr;
+    LYSO_BIRKS_RunAction *fRunAction = nullptr;
 
     G4GenericMessenger* fMessenger;
     G4double nH, nEH, kBirks, dEdxO;

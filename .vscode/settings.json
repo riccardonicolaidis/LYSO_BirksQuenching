@@ -11,6 +11,8 @@
         "matrix": "cpp",
         "node": "cpp",
         "noderef": "cpp",
-        "separator": "cpp"
-    }
+        "separator": "cpp",
+        "Analysis_Birks.C": "cpp"
+    },
+    "cmake.configureOnOpen": false
 }

@@ -16,6 +16,7 @@ void LYSO_BIRKS_EventAction::BeginOfEventAction(const G4Event*)
   fEdepQuenched = 0.;
 
 
+  NumberOfElements = pow(fRunAction -> GetNumberElementsGrid(), 4); // Initial value to be recomputed
   fEdepQuenchedArray.resize(NumberOfElements);
 
 
